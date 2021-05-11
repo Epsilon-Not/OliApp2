@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "158487797696",
+    "project_id": "oliapp-a50a0",
+    "storage_bucket": "oliapp-a50a0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:158487797696:android:f0e87441b592b00c8a3225",
+        "android_client_info": {
+          "package_name": "us.synergize_apps.oliapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "158487797696-1gb007b8u3g0qqjb8mfilntc2tq901b9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "us.synergize_apps.oliapp",
+            "certificate_hash": "81d1bcc0e0b7764f7e72409cbbb1292994180fa6"
+          }
+        },
+        {
+          "client_id": "158487797696-lounbg6e0gt6ucm1n6r34ork3ebcgkr1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBfZzY6DJtgI_es0-B-rpE3AtbzArxBjm8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "158487797696-lounbg6e0gt6ucm1n6r34ork3ebcgkr1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">OLI APP</string>
+
+    <string name="content_description">image</string>
+    <string name="title_login">LOGIN</string>
+    <string name="et_hint_email_id">Email ID</string>
+    <string name="et_hint_password">Password</string>
+    <string name="lbl_forgot_password">Forgot Password?</string>
+    <string name="btn_lbl_login">Login</string>
+    <string name="don_t_have_an_account">Don\'t have an account?</string>
+    <string name="register"><u>Register</u></string>
+
+    <string name="create_an_account">CREATE AN ACCOUNT</string>
+
+    <string name="hint_last_name">Last name</string>
+    <string name="hint_first_name">First name</string>
+    <string name="et_hint_confirm_password">Confirm Password</string>
+
+    <string name="i_agree_to_the_terms_and_condition">I Agree To The <u> Terms &amp; Condition </u></string>
+    <string name="btn_lbl_register">Register</string>
+
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="login"><u>Login</u></string>
+
+    <!--TODO Step 7: For the best practices string values in the string.xml file.-->
+    <!--START-->
+    <string name="err_msg_enter_first_name">Please enter first name.</string>
+    <string name="err_msg_enter_last_name">Please enter last name.</string>
+    <string name="err_msg_enter_email">Please enter email.</string>
+    <string name="err_msg_enter_password">Please enter password.</string>
+    <string name="err_msg_enter_confirm_password">Please enter confirm password.</string>
+    <string name="err_msg_password_and_confirm_password_mismatch">Password and confirm password does not match.</string>
+    <string name="err_msg_agree_terms_and_condition">Please agree terms and condition.</string>
+
+    <string name="please_wait">Please Wait&#8230;</string>
+    <string name="submit">SUBMIT</string>
+    <string name="forgotPwMsg">Enter e-mail address and an email will be sent to reset your password.</string>
+    <string name="email_sent_success">Password reset e-mail sent.</string>
+    <string name="registerSuccess">Registration Complete</string>
+    <string name="title_profile">PROFILE</string>
+    <string name="et_hint_mobile_number">Phone</string>
+    <string name="btn_lbl_save">SAVE</string>
+    <string name="read_storage_permission_denied">Permission Denied, You can allow this permissions from settings if desired</string>
+    <string name="image_select_fail">Failed to select image</string>
+
+    <!--END-->
+</resources>
