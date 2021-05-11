@@ -131,22 +131,15 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
         // Hide the progress dialog.
         hideProgressDialog()
 
-        // Print the user details in the log as of now.
-        Log.i("First Name: ", user.firstName)
-        Log.i("Last Name: ", user.lastName)
-        Log.i("Email: ", user.email)
-
         if (user.profileComplete == 0) {
             // If the user profile is incomplete then launch the UserProfileActivity.
             val intent = Intent(this@LoginActivity, UserProfileActivity::class.java)
-            // TODO Step 4: Pass the user details to the user profile screen.
-            // START
             intent.putExtra(Constants.USER_EXTENDED_INFO, user)
             // END
             startActivity(intent)
         } else {
             // Redirect the user to Main Screen after log in.
-            startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+            startActivity(Intent(this@LoginActivity, DashboardActivity::class.java))
         }
         finish()
     }

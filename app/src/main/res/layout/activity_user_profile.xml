@@ -52,11 +52,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
-                
-                <us.synergize_apps.oliapp.utils.OliButton
-                    android:layout_width=""
-                    android:layout_height=""
-                
                 <ImageView
                     android:id="@+id/iv_user_photo"
                     android:layout_width="match_parent"
@@ -127,6 +122,7 @@
                 android:layout_marginTop="25dp"
                 android:layout_marginEnd="16dp"
                 android:hint="@string/et_hint_mobile_number"
+                android:inputType="phone"
                 android:textColorHint="@color/colorSecondaryText"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

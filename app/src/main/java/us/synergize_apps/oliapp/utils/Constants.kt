@@ -2,7 +2,9 @@ package us.synergize_apps.oliapp.utils
 
 import android.app.Activity
 import android.content.Intent
+import android.net.Uri
 import android.provider.MediaStore
+import android.webkit.MimeTypeMap
 import us.synergize_apps.oliapp.ui.activities.BaseActivity
 
 object Constants {
@@ -12,6 +14,11 @@ object Constants {
     const val USER_EXTENDED_INFO: String = "user extended info"
     const val READ_STORAGE_PERMISSION_CODE = 2
     const val PICK_IMAGE_REQUEST_CODE = 3
+    const val MOBILE: String = "mobile"
+    const val USER_PROFILE_IMAGE: String = "image"
+    const val PROFILE_COMPLETE: String = "profileComplete"
+
+
 
     fun showImageChoose(activity: Activity) {
         val galleryIntent = Intent(
@@ -19,5 +26,9 @@ object Constants {
             MediaStore.Images.Media.EXTERNAL_CONTENT_URI
         )
         activity.startActivityForResult(galleryIntent, PICK_IMAGE_REQUEST_CODE)
+    }
+
+    fun getFileExtension(activity: Activity, uri: Uri?): String? {
+        return MimeTypeMap.getSingleton().getExtensionFromMimeType(activity.contentResolver.getType(uri!!))
     }
 }

@@ -42,6 +42,12 @@
     <string name="btn_lbl_save">SAVE</string>
     <string name="read_storage_permission_denied">Permission Denied, You can allow this permissions from settings if desired</string>
     <string name="image_select_fail">Failed to select image</string>
+    <string name="err_msg_enter_mobile_number">Enter Mobile Number</string>
+    <string name="profile_update_success">Profile Updated.</string>
+    <string name="title_activity_dashboard">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 
     <!--END-->
 </resources>

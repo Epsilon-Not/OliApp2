@@ -7,6 +7,7 @@ import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_splash.*
 import us.synergize_apps.oliapp.R
+import us.synergize_apps.oliapp.activities.DashboardActivity
 import us.synergize_apps.oliapp.activities.LoginActivity
 
 @Suppress("DEPRECATION")
@@ -27,10 +28,10 @@ class SplashActivity : AppCompatActivity() {
         Handler().postDelayed(
             {
                 // Launch the Login Activity
-                startActivity(Intent(this@SplashActivity, LoginActivity::class.java))
+                startActivity(Intent(this@SplashActivity, DashboardActivity::class.java))
                 finish() // Call this when your activity is done and should be closed.
             },
-            2500
+            1500
         ) // Here we pass the delay time in milliSeconds after which the splash activity will disappear.
     }
 }
