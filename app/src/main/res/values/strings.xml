@@ -22,8 +22,6 @@
     <string name="already_have_an_account">Already have an account?</string>
     <string name="login"><u>Login</u></string>
 
-    <!--TODO Step 7: For the best practices string values in the string.xml file.-->
-    <!--START-->
     <string name="err_msg_enter_first_name">Please enter first name.</string>
     <string name="err_msg_enter_last_name">Please enter last name.</string>
     <string name="err_msg_enter_email">Please enter email.</string>
@@ -44,10 +42,10 @@
     <string name="image_select_fail">Failed to select image</string>
     <string name="err_msg_enter_mobile_number">Enter Mobile Number</string>
     <string name="profile_update_success">Profile Updated.</string>
-    <string name="title_activity_dashboard">MainActivity</string>
+<!--    <string name="title_activity_dashboard">MainActivity</string>-->
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
 
-    <!--END-->
+    <string name="back_again_to_exit">Click back again to exit</string>
 </resources>

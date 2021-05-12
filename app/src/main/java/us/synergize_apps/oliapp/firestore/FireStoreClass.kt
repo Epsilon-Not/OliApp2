@@ -11,8 +11,8 @@ import com.google.firebase.firestore.SetOptions
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import us.synergize_apps.oliapp.models.User
-import us.synergize_apps.oliapp.activities.LoginActivity
-import us.synergize_apps.oliapp.activities.UserProfileActivity
+import us.synergize_apps.oliapp.ui.fragments.activities.LoginActivity
+import us.synergize_apps.oliapp.ui.fragments.activities.UserProfileActivity
 import us.synergize_apps.oliapp.ui.activities.RegisterActivity
 import us.synergize_apps.oliapp.utils.Constants
 
