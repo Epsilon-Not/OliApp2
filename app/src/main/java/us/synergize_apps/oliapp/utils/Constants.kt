@@ -14,9 +14,15 @@ object Constants {
     const val USER_EXTENDED_INFO: String = "user extended info"
     const val READ_STORAGE_PERMISSION_CODE = 2
     const val PICK_IMAGE_REQUEST_CODE = 3
+    const val FIRST_NAME = "firstName"
+    const val LAST_NAME = "lastName"
+    const val EMAIL = "email"
     const val MOBILE: String = "mobile"
     const val USER_PROFILE_IMAGE: String = "image"
     const val PROFILE_COMPLETE: String = "profileComplete"
+    const val PROJECT_IMAGE: String = "projectImage"
+    const val PROJECTS: String = "projects"
+    const val USER_ID: String = "user_id"
 
 
 

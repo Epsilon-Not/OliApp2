@@ -11,9 +11,11 @@ import com.google.firebase.firestore.SetOptions
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import us.synergize_apps.oliapp.models.User
+import us.synergize_apps.oliapp.ui.activities.AddProjectActivity
 import us.synergize_apps.oliapp.ui.fragments.activities.LoginActivity
 import us.synergize_apps.oliapp.ui.fragments.activities.UserProfileActivity
 import us.synergize_apps.oliapp.ui.activities.RegisterActivity
+import us.synergize_apps.oliapp.ui.activities.SettingsActivity
 import us.synergize_apps.oliapp.utils.Constants
 
 class FireStoreClass {
@@ -78,6 +80,10 @@ class FireStoreClass {
                     is LoginActivity -> {
                         activity.userLoggedInSuccess(user)
                     }
+                    is SettingsActivity -> {
+                        activity.userDetailsSuccess(user)
+
+                    }
                 }
             }
             .addOnFailureListener { e ->
@@ -86,6 +92,10 @@ class FireStoreClass {
                     is LoginActivity -> {
                         activity.hideProgressDialog()
                     }
+                    is SettingsActivity -> {
+                        activity.hideProgressDialog()
+                    }
+
                 }
 
                 Log.e(
@@ -116,9 +126,9 @@ class FireStoreClass {
                 }
     }
 
-    fun uploadImageToCloud(activity: Activity, imageFileUri: Uri) {
+    fun uploadImageToCloud(activity: Activity, imageFileUri: Uri, imageType: String) {
         val sRef: StorageReference = FirebaseStorage.getInstance().reference.child(
-            Constants.USER_PROFILE_IMAGE + System.currentTimeMillis() + "."
+            imageType + System.currentTimeMillis() + "."
                     + Constants.getFileExtension(activity, imageFileUri))
         sRef.putFile(imageFileUri!!).addOnSuccessListener { taskSnapshot->
             Log.e(
@@ -132,16 +142,20 @@ class FireStoreClass {
                         is UserProfileActivity -> {
                             activity.imageUploadSuccess(uri.toString())
                         }
+
                     }
                 }
         }
-            .addOnFailureListener { exceptoin ->
+            .addOnFailureListener { exception ->
                 when (activity) {
                     is UserProfileActivity -> {
                         activity.hideProgressDialog()
                     }
+
                 }
-                Log.e(activity.javaClass.simpleName, exceptoin.message, exceptoin)
+                Log.e(activity.javaClass.simpleName, exception.message, exception)
             }
     }
+
+
 }

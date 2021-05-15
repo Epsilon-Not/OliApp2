@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="us.synergize_apps.oliapp">
-    <!-- TODO Step 3: Add the Read Storage Permission to Select the image from Storage. -->
-    <!-- START -->
+
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
@@ -13,8 +12,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="us.synergize_apps.oliapp.ui.fragments.activities.DashboardActivity"
-            android:label="@string/app_name"></activity>
+            android:name=".ui.activities.AddProjectActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".ui.activities.SettingsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.fragments.activities.DashboardActivity"
+            android:label="@string/app_name" />
         <activity
             android:name=".ui.activities.SplashActivity"
             android:screenOrientation="portrait"
@@ -29,7 +36,7 @@
             android:name=".ui.activities.MainActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="us.synergize_apps.oliapp.ui.fragments.activities.LoginActivity"
+            android:name=".ui.fragments.activities.LoginActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
@@ -42,7 +49,7 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="us.synergize_apps.oliapp.ui.fragments.activities.UserProfileActivity"
+            android:name=".ui.fragments.activities.UserProfileActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
     </application>

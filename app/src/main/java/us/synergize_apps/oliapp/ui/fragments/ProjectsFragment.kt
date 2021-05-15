@@ -4,14 +4,15 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import us.synergize_apps.oliapp.R
-import us.synergize_apps.oliapp.ui.activities.SettingsActivity
+import us.synergize_apps.oliapp.ui.activities.AddProjectActivity
+import us.synergize_apps.oliapp.ui.activities.firestore.FireStoreClass
+import kotlinx.android.synthetic.main.fragment_projects.*
 
-
-class DashboardFragment : Fragment() {
-
-    //private lateinit var dashboardViewModel: DashboardViewModel
+class ProjectsFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,30 +24,26 @@ class DashboardFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-//        dashboardViewModel =
-//            ViewModelProvider(this).get(DashboardViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_dashboard, container, false)
-        val textView: TextView = root.findViewById(R.id.text_dashboard)
-        textView.text = "This is the dashboard fragment"
+        val root = inflater.inflate(R.layout.fragment_projects, container, false)
+        val textView: TextView = root.findViewById(R.id.text_home)
+        textView.text = "This is Products Fragment"
         return root
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.dashboard_menu, menu)
+        inflater.inflate(R.menu.add_project_menu, menu)
         super.onCreateOptionsMenu(menu, inflater)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val id = item.itemId
 
-        when (id) {
-
-            R.id.action_settings -> {
-
-                startActivity(Intent(activity, SettingsActivity::class.java))
-                return true
-            }
+        if (id == R.id.action_add_project) {
+            startActivity(Intent(activity, AddProjectActivity::class.java))
+            return true
         }
         return super.onOptionsItemSelected(item)
     }
+
+
 }

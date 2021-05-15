@@ -3,23 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
-
-    <fragment
-        android:id="@+id/navigation_home"
-        android:name="us.synergize_apps.oliapp.ui.fragments.HomeFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+    app:startDestination="@+id/navigation_dashboard">
 
     <fragment
         android:id="@+id/navigation_dashboard"
         android:name="us.synergize_apps.oliapp.ui.fragments.DashboardFragment"
         android:label="@string/title_dashboard"
+        tools:layout="@layout/fragment_projects" />
+
+    <fragment
+        android:id="@+id/navigation_projects"
+        android:name="us.synergize_apps.oliapp.ui.fragments.ProjectsFragment"
+        android:label="@string/title_projects"
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="us.synergize_apps.oliapp.ui.fragments.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_collaborators"
+        android:name="us.synergize_apps.oliapp.ui.fragments.CollaboratorsFragment"
+        android:label="@string/title_collaborators"
+        tools:layout="@layout/fragment_collaborators" />
 </navigation>

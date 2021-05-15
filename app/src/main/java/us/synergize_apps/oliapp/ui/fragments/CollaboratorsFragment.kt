@@ -10,7 +10,7 @@ import us.synergize_apps.oliapp.R
 
 
 
-class NotificationsFragment : Fragment() {
+class CollaboratorsFragment : Fragment() {
 
     //private lateinit var notificationsViewModel: NotificationsViewModel
 
@@ -21,9 +21,9 @@ class NotificationsFragment : Fragment() {
     ): View? {
 //        notificationsViewModel =
 //            ViewModelProvider(this).get(NotificationsViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_notifications, container, false)
+        val root = inflater.inflate(R.layout.fragment_collaborators, container, false)
         val textView: TextView = root.findViewById(R.id.text_notifications)
-        textView.text = "this is the notification fragmaent"
+        textView.text = "this is the collaborators fragment"
         return root
     }
 }

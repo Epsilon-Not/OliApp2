@@ -7,7 +7,9 @@ import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_splash.*
 import us.synergize_apps.oliapp.R
+import us.synergize_apps.oliapp.ui.activities.firestore.FireStoreClass
 import us.synergize_apps.oliapp.ui.fragments.activities.DashboardActivity
+import us.synergize_apps.oliapp.ui.fragments.activities.LoginActivity
 
 @Suppress("DEPRECATION")
 class SplashActivity : AppCompatActivity() {
@@ -26,11 +28,18 @@ class SplashActivity : AppCompatActivity() {
         // It is deprecated in the API level 30.
         Handler().postDelayed(
             {
-                // Launch the Login Activity
-                startActivity(Intent(this@SplashActivity, DashboardActivity::class.java))
+                val currentUserID = FireStoreClass().getCurrentUserID()
+
+                if (currentUserID.isNotEmpty()) {
+                    // Launch dashboard screen.
+                    startActivity(Intent(this@SplashActivity, DashboardActivity::class.java))
+                } else {
+                    // Launch the Login Activity
+                    startActivity(Intent(this@SplashActivity, LoginActivity::class.java))
+                }
                 finish() // Call this when your activity is done and should be closed.
             },
-            1500
+                2500
         ) // Here we pass the delay time in milliSeconds after which the splash activity will disappear.
     }
 }

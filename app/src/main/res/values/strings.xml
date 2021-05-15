@@ -35,17 +35,54 @@
     <string name="forgotPwMsg">Enter e-mail address and an email will be sent to reset your password.</string>
     <string name="email_sent_success">Password reset e-mail sent.</string>
     <string name="registerSuccess">Registration Complete</string>
-    <string name="title_profile">PROFILE</string>
+    <string name="title_complete_profile">COMPLETE PROFILE</string>
+    <string name="title_edit_profile">EDIT PROFILE</string>
     <string name="et_hint_mobile_number">Phone</string>
     <string name="btn_lbl_save">SAVE</string>
     <string name="read_storage_permission_denied">Permission Denied, You can allow this permissions from settings if desired</string>
     <string name="image_select_fail">Failed to select image</string>
     <string name="err_msg_enter_mobile_number">Enter Mobile Number</string>
     <string name="profile_update_success">Profile Updated.</string>
-<!--    <string name="title_activity_dashboard">MainActivity</string>-->
+    <!--    <string name="title_activity_dashboard">MainActivity</string>-->
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
 
     <string name="back_again_to_exit">Click back again to exit</string>
+    <string name="title_projects">Projects</string>
+    <string name="title_collaborators">Collaborators</string>
+    <string name="action_settings">Settings</string>
+    <string name="btn_lbl_logout">Logout</string>
+    <string name="lbl_addresses">Source</string>
+    <string name="title_settings">Settings</string>
+    <string name="lbl_edit">Edit</string>
+    <string name="action_add_project">Add Project</string>
+    <string name="title_add_project">ADD PROJECT</string>
+    <string name="et_hint_project_title">Project Title</string>
+    <string name="et_hint_project_price">Project Price ($)</string>
+    <string name="et_hint_project_description">Project Description</string>
+    <string name="et_hint_project_quantity">Project Quantity</string>
+
+    <string name="err_msg_select_project_image">Please select project image.</string>
+    <string name="err_msg_enter_project_title">Please enter project title.</string>
+    <string name="err_msg_enter_project_languages">Please enter project languages.</string>
+    <string name="err_msg_enter_project_description">Please enter project description.</string>
+    <string name="err_msg_enter_project_repo">Please enter project repository.</string>
+
+    <string name="project_uploaded_success_message">Your project is uploaded successfully.</string>
+    <string name="no_projects_added_yet">No projects added yet!</string>
+    <string name="no_dashboard_item_found">No items found!</string>
+
+    <string name="project_delete_success_message">Your project is deleted successfully.</string>
+    <string name="delete_dialog_title">Delete</string>
+    <string name="delete_dialog_message">Are you sure you want to delete the project?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="btn_lbl_submit">SUBMIT</string>
+    <string name="et_hint_project_languages">Languages</string>
+    <string name="et_hint_project_repository">Repository</string>
+    <string name="project_upload_success">Project Upload Complete</string>
+    <string name="no_products_added_yet">No Projects Added Yet.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

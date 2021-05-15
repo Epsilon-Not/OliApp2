@@ -7,7 +7,7 @@
     android:background="@drawable/img_splash_background"
     tools:context=".ui.activities.SplashActivity">
 
-    <us.synergize_apps.oliapp.utils.OliViewBold
+    <TextView
         android:id="@+id/appName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
