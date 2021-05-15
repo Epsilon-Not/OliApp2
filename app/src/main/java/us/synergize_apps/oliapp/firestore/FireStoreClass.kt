@@ -10,6 +10,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
+import us.synergize_apps.oliapp.models.Project
 import us.synergize_apps.oliapp.models.User
 import us.synergize_apps.oliapp.ui.activities.AddProjectActivity
 import us.synergize_apps.oliapp.ui.fragments.activities.LoginActivity
@@ -165,5 +166,17 @@ class FireStoreClass {
             }
     }
 
+    fun uploadProjectDetails(activity: AddProjectActivity, projectInfo: Project){
+        oliFireStore.collection(Constants.PROJECTS)
+                .document()
+                .set(projectInfo, SetOptions.merge())
+                .addOnSuccessListener {
+                    activity.projectUploadSuccess()
+                }
+                .addOnFailureListener { e->
+                    activity.hideProgressDialog()
+                    Log.e(activity.javaClass.simpleName, "Error Uploading Project", e)
+                }
+    }
 
 }

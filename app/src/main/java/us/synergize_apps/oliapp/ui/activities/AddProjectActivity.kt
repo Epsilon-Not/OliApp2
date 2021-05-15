@@ -18,6 +18,7 @@ import kotlinx.android.synthetic.main.activity_add_project.*
 import kotlinx.android.synthetic.main.activity_register.*
 import kotlinx.android.synthetic.main.activity_user_profile.*
 import us.synergize_apps.oliapp.R
+import us.synergize_apps.oliapp.models.Project
 import us.synergize_apps.oliapp.ui.activities.firestore.FireStoreClass
 import us.synergize_apps.oliapp.utils.Constants
 import us.synergize_apps.oliapp.utils.GlideLoader
@@ -27,6 +28,7 @@ import java.io.IOException
 class AddProjectActivity : BaseActivity(), View.OnClickListener{
 
     private var oliSelectedImageFileURI: Uri? = null
+    private var oliProjectImageURL: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,7 +57,7 @@ class AddProjectActivity : BaseActivity(), View.OnClickListener{
                 }
 
                 R.id.btn_submit_add_project ->{
-                    if(validateUserProfileDetails()){
+                    if(validateProjectDetails()){
                         uploadProjectImage()
                     }
                 }
@@ -68,9 +70,34 @@ class AddProjectActivity : BaseActivity(), View.OnClickListener{
         FireStoreClass().uploadImageToCloud(this, oliSelectedImageFileURI!!, Constants.PROJECT_IMAGE)
     }
 
-    fun imageUploadSuccess(imageURL: String) {
+    fun projectUploadSuccess(){
         hideProgressDialog()
-        showErrorSnackBar("Project Image Uploaded to: $imageURL", false)
+        showErrorSnackBar("Project Uploaded", false)
+        finish()
+    }
+
+    fun imageUploadSuccess(imageURL: String) {
+        oliProjectImageURL = imageURL
+
+        uploadProjectDetails()
+    }
+
+    private fun uploadProjectDetails(){
+        val userName = this.getSharedPreferences(Constants.OLIAPP_PREFERENCES, Context.MODE_PRIVATE)
+                .getString(Constants.LOGGED_IN_USERNAME, "")!!
+
+        val project = Project(
+                FireStoreClass().getCurrentUserID(), userName,
+                til_project_title.text.toString().trim{ it <= ' '},
+                til_project_languages.text.toString().trim { it <= ' ' },
+                til_project_description.text.toString().trim { it <= ' ' },
+                til_project_repo.text.toString().trim { it <= ' ' },
+                oliProjectImageURL
+
+
+        )
+        FireStoreClass().uploadProjectDetails(this, project)
+
     }
 
     override fun onRequestPermissionsResult(
@@ -116,7 +143,7 @@ class AddProjectActivity : BaseActivity(), View.OnClickListener{
         }
     }
 
-    private fun validateUserProfileDetails(): Boolean {
+    private fun validateProjectDetails(): Boolean {
         return when {
 
             oliSelectedImageFileURI == null ->{
