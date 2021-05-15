@@ -56,11 +56,21 @@ class AddProjectActivity : BaseActivity(), View.OnClickListener{
 
                 R.id.btn_submit_add_project ->{
                     if(validateUserProfileDetails()){
-                        showErrorSnackBar("Details Valid", false)
+                        uploadProjectImage()
                     }
                 }
             }
         }
+    }
+
+    private fun uploadProjectImage(){
+        showProgressDialog(resources.getString(R.string.please_wait))
+        FireStoreClass().uploadImageToCloud(this, oliSelectedImageFileURI!!, Constants.PROJECT_IMAGE)
+    }
+
+    fun imageUploadSuccess(imageURL: String) {
+        hideProgressDialog()
+        showErrorSnackBar("Project Image Uploaded to: $imageURL", false)
     }
 
     override fun onRequestPermissionsResult(

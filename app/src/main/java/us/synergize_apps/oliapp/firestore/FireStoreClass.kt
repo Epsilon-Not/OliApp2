@@ -142,6 +142,11 @@ class FireStoreClass {
                         is UserProfileActivity -> {
                             activity.imageUploadSuccess(uri.toString())
                         }
+                        is AddProjectActivity -> {
+                            activity.imageUploadSuccess(uri.toString())
+                        }
+
+
 
                     }
                 }
@@ -149,6 +154,9 @@ class FireStoreClass {
             .addOnFailureListener { exception ->
                 when (activity) {
                     is UserProfileActivity -> {
+                        activity.hideProgressDialog()
+                    }
+                    is AddProjectActivity ->{
                         activity.hideProgressDialog()
                     }
 

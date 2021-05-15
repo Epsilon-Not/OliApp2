@@ -20,7 +20,7 @@ object Constants {
     const val MOBILE: String = "mobile"
     const val USER_PROFILE_IMAGE: String = "image"
     const val PROFILE_COMPLETE: String = "profileComplete"
-    const val PROJECT_IMAGE: String = "projectImage"
+    const val PROJECT_IMAGE: String = "Project_Image"
     const val PROJECTS: String = "projects"
     const val USER_ID: String = "user_id"
 
