@@ -26,6 +26,7 @@ import java.io.IOException
 
 class AddProjectActivity : BaseActivity(), View.OnClickListener{
 
+    private var oliSelectedImageFileURI: Uri? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +35,7 @@ class AddProjectActivity : BaseActivity(), View.OnClickListener{
         setupActionBar()
 
         iv_add_update_project.setOnClickListener(this)
+        btn_submit_add_project.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -49,6 +51,12 @@ class AddProjectActivity : BaseActivity(), View.OnClickListener{
                             this,
                             arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE),
                             Constants.READ_STORAGE_PERMISSION_CODE)
+                    }
+                }
+
+                R.id.btn_submit_add_project ->{
+                    if(validateUserProfileDetails()){
+                        showErrorSnackBar("Details Valid", false)
                     }
                 }
             }
@@ -84,10 +92,10 @@ class AddProjectActivity : BaseActivity(), View.OnClickListener{
                     iv_add_update_project.setImageDrawable(ContextCompat.getDrawable(
                             this, R.drawable.ic_baseline_edit_24))
 
-                    val selectedImageFileURI = data.data!!
+                    oliSelectedImageFileURI = data.data
 
                     try {
-                        GlideLoader(this).loadUserPicture(selectedImageFileURI, iv_project_image)
+                        GlideLoader(this).loadUserPicture(oliSelectedImageFileURI!!, iv_project_image)
                     }catch (e: IOException){
                         e.printStackTrace()
                     }
@@ -95,6 +103,39 @@ class AddProjectActivity : BaseActivity(), View.OnClickListener{
             }
         }else if (resultCode == Activity.RESULT_CANCELED) {
             Log.e("Request Cancelled", "Image select cancelled.")
+        }
+    }
+
+    private fun validateUserProfileDetails(): Boolean {
+        return when {
+
+            oliSelectedImageFileURI == null ->{
+                showErrorSnackBar(resources.getString(R.string.err_msg_select_project_image), true)
+                false
+            }
+
+            TextUtils.isEmpty(til_project_title.text.toString().trim { it <= ' ' }) -> {
+                showErrorSnackBar(resources.getString(R.string.err_msg_enter_project_title), true)
+                false
+            }
+
+            TextUtils.isEmpty(til_project_languages.text.toString().trim { it <= ' ' }) -> {
+                showErrorSnackBar(resources.getString(R.string.err_msg_enter_project_languages), true)
+                false
+            }
+
+            TextUtils.isEmpty(til_project_description.text.toString().trim { it <= ' ' }) -> {
+                showErrorSnackBar(resources.getString(R.string.err_msg_enter_project_description), true)
+                false
+            }
+
+            TextUtils.isEmpty(til_project_repo.text.toString().trim { it <= ' ' }) -> {
+                showErrorSnackBar(resources.getString(R.string.err_msg_enter_project_repo), true)
+                false
+            }
+            else -> {
+                true
+            }
         }
     }
 

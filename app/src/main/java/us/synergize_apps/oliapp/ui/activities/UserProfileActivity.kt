@@ -170,11 +170,6 @@ class UserProfileActivity : BaseActivity(), View.OnClickListener {
     private fun validateUserProfileDetails(): Boolean {
         return when {
 
-            // We have kept the user profile picture is optional.
-            // The FirstName, LastName, and Email Id are not editable when they come from the login screen.
-            // The Radio button for Gender always has the default selected value.
-
-            // Check if the mobile number is not empty as it is mandatory to enter.
             TextUtils.isEmpty(til_mobile_number.text.toString().trim { it <= ' ' }) -> {
                 showErrorSnackBar(resources.getString(R.string.err_msg_enter_mobile_number), true)
                 false
