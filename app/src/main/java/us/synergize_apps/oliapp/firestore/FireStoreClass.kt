@@ -18,6 +18,7 @@ import us.synergize_apps.oliapp.ui.fragments.activities.LoginActivity
 import us.synergize_apps.oliapp.ui.fragments.activities.UserProfileActivity
 import us.synergize_apps.oliapp.ui.activities.RegisterActivity
 import us.synergize_apps.oliapp.ui.activities.SettingsActivity
+import us.synergize_apps.oliapp.ui.fragments.DashboardFragment
 import us.synergize_apps.oliapp.ui.fragments.ProjectsFragment
 import us.synergize_apps.oliapp.utils.Constants
 
@@ -202,5 +203,44 @@ class FireStoreClass {
                 }
             }
 
+    }
+
+    fun deleteProject(fragment: ProjectsFragment, projectID: String){
+        oliFireStore.collection(Constants.PROJECTS)
+            .document(projectID)
+            .delete()
+            .addOnSuccessListener {
+                fragment.projectDeleteSuccess()
+            }
+            .addOnFailureListener {e ->
+                fragment.hideProgressDialog()
+                Log.e(fragment.requireActivity().javaClass.simpleName,
+                "Error Deleting Project",
+                e)
+            }
+    }
+
+
+
+    fun getDashboardItemsList(fragment: DashboardFragment){
+        oliFireStore.collection(Constants.PROJECTS)
+            .get()
+            .addOnSuccessListener { document ->
+                Log.e(fragment.javaClass.simpleName, document.documents.toString())
+
+                val projectsList: ArrayList<Project> = ArrayList()
+
+                for (doc in document.documents){
+                    val project = doc.toObject(Project::class.java)!!
+                    project.id = doc.id
+                    projectsList.add(project)
+                }
+
+                fragment.successDashboardItemsList(projectsList)
+            }
+            .addOnFailureListener { e->
+                fragment.hideProgressDialog()
+                Log.e(fragment.javaClass.simpleName, "Error loading projects", e)
+            }
     }
 }

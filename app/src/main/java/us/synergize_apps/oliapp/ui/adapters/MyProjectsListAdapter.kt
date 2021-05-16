@@ -8,11 +8,13 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_list_layout.view.*
 import us.synergize_apps.oliapp.R
 import us.synergize_apps.oliapp.models.Project
+import us.synergize_apps.oliapp.ui.fragments.ProjectsFragment
 import us.synergize_apps.oliapp.utils.GlideLoader
 
 open class MyProjectsListAdapter (
     private val context: Context,
-    private val list: ArrayList<Project>
+    private val list: ArrayList<Project>,
+    private val fragment: ProjectsFragment
 ): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return MyViewHolder(
@@ -28,6 +30,10 @@ open class MyProjectsListAdapter (
             GlideLoader(context).loadProjectPicture(model.image, holder.itemView.iv_item_image)
             holder.itemView.tv_project_name.text = model.title
             holder.itemView.tv_project_language.text = model.languages
+
+            holder.itemView.ib_delete_product.setOnClickListener {
+                fragment.deleteProject(model.id)
+            }
         }
     }
 
