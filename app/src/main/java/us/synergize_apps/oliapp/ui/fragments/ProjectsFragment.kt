@@ -4,13 +4,13 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.*
-import android.widget.TextView
-import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import kotlinx.android.synthetic.main.fragment_projects.*
 import us.synergize_apps.oliapp.R
 import us.synergize_apps.oliapp.ui.activities.AddProjectActivity
-import kotlinx.android.synthetic.main.fragment_projects.*
 import us.synergize_apps.oliapp.models.Project
 import us.synergize_apps.oliapp.ui.activities.firestore.FireStoreClass
+import us.synergize_apps.oliapp.ui.adapters.MyProjectsListAdapter
 
 class ProjectsFragment : BaseFragment() {
 
@@ -21,19 +21,29 @@ class ProjectsFragment : BaseFragment() {
 
     fun successProjectsListFromFireStore(projectsList: ArrayList<Project>){
         hideProgressDialog()
-        for (i in projectsList){
-            Log.i("Project Title", i.title)
+
+        if (projectsList.size > 0){
+            rv_my_project_items.visibility = View.VISIBLE
+            no_projects_found.visibility = View.GONE
+
+            rv_my_project_items.layoutManager = LinearLayoutManager(activity)
+            rv_my_project_items.setHasFixedSize(true)
+            val adapterProjects = MyProjectsListAdapter(requireActivity(), projectsList)
+            rv_my_project_items.adapter = adapterProjects
+        }else{
+            rv_my_project_items.visibility = View.GONE
+            no_projects_found.visibility = View.VISIBLE
         }
     }
 
-    private fun getProjectListGromFireStore(){
+    private fun getProjectListFromFireStore(){
         showProgressDialog(resources.getString(R.string.please_wait))
         FireStoreClass().getProjectsList(this)
     }
 
     override fun onResume() {
         super.onResume()
-        getProjectListGromFireStore()
+        getProjectListFromFireStore()
     }
 
     override fun onCreateView(
