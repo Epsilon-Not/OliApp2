@@ -12,5 +12,5 @@ data class Project (
         val description: String = "",
         val repository: String = "",
         val image: String = "",
-        val id: String = "",
+        var id: String = "",
 ): Parcelable

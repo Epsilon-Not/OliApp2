@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.net.Uri
 import android.util.Log
+import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
@@ -17,6 +18,7 @@ import us.synergize_apps.oliapp.ui.fragments.activities.LoginActivity
 import us.synergize_apps.oliapp.ui.fragments.activities.UserProfileActivity
 import us.synergize_apps.oliapp.ui.activities.RegisterActivity
 import us.synergize_apps.oliapp.ui.activities.SettingsActivity
+import us.synergize_apps.oliapp.ui.fragments.ProjectsFragment
 import us.synergize_apps.oliapp.utils.Constants
 
 class FireStoreClass {
@@ -179,4 +181,26 @@ class FireStoreClass {
                 }
     }
 
+    fun getProjectsList(fragment: Fragment){
+        oliFireStore.collection(Constants.PROJECTS)
+            .whereEqualTo(Constants.USER_ID, getCurrentUserID())
+            .get()
+            .addOnSuccessListener { document->
+                Log.e("Projects List", document.documents.toString())
+                val projectsList: ArrayList<Project> = ArrayList()
+                for (doc in document.documents) {
+                    val project = doc.toObject(Project::class.java)
+                    project!!.id = doc.id
+
+                    projectsList.add(project)
+                }
+
+                when(fragment){
+                    is ProjectsFragment ->{
+                        fragment.successProjectsListFromFireStore(projectsList)
+                    }
+                }
+            }
+
+    }
 }
