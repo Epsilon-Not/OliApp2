@@ -14,6 +14,7 @@ import com.google.firebase.storage.StorageReference
 import us.synergize_apps.oliapp.models.Project
 import us.synergize_apps.oliapp.models.User
 import us.synergize_apps.oliapp.ui.activities.AddProjectActivity
+import us.synergize_apps.oliapp.ui.activities.ProjectDetailsActivity
 import us.synergize_apps.oliapp.ui.fragments.activities.LoginActivity
 import us.synergize_apps.oliapp.ui.fragments.activities.UserProfileActivity
 import us.synergize_apps.oliapp.ui.activities.RegisterActivity
@@ -204,6 +205,25 @@ class FireStoreClass {
             }
 
     }
+
+    fun getProjectDetails(activity: ProjectDetailsActivity, projectID: String){
+        oliFireStore.collection(Constants.PROJECTS)
+            .document(projectID)
+            .get()
+            .addOnSuccessListener { document->
+                Log.e(activity.javaClass.simpleName, document.toString())
+                val project = document.toObject(Project::class.java)
+                if (project != null) {
+                    activity.projectDetailsSuccess(project)
+                }
+
+            }
+            .addOnFailureListener { e->
+                activity.hideProgressDialog()
+                Log.e(activity.javaClass.simpleName, "Error getting proj details", e)
+            }
+    }
+
 
     fun deleteProject(fragment: ProjectsFragment, projectID: String){
         oliFireStore.collection(Constants.PROJECTS)

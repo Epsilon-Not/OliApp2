@@ -7,6 +7,7 @@ import kotlinx.android.parcel.Parcelize
 data class Project (
         val user_id: String = "",
         val user_name: String = "",
+        val user_email: String = "",
         val title: String = "",
         val languages: String = "",
         val description: String = "",

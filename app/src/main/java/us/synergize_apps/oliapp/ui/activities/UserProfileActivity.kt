@@ -201,7 +201,7 @@ class UserProfileActivity : BaseActivity(), View.OnClickListener {
             userHashMap[Constants.MOBILE] = mobileNumber.toLong()
         }
         if (oliProfileImageURL.isNotEmpty()){
-            userHashMap[Constants.USER_PROFILE_IMAGE] = oliProfileImageURL
+            userHashMap[Constants.IMAGE] = oliProfileImageURL
         }
         if (oliUserDetails.profileComplete == 0) {
             userHashMap[Constants.PROFILE_COMPLETE] = 1

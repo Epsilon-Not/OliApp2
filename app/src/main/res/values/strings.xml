@@ -84,4 +84,14 @@
     <string name="project_upload_success">Project Upload Complete</string>
     <string name="no_products_added_yet">No Projects Added Yet.</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="title_project_description">Project Details</string>
+    <string name="lbl_project_description">Project Description</string>
+    <string name="lbl_project_details_languages">Languages</string>
+    <string name="title_project_details">PROJECT DETAILS</string>
+    <string name="btn_lbl_join_project">Join Project</string>
+    <string name="btn_lbl_message_creator">Message Creator</string>
+    <string name="et_hint_project_contact">Project Contact</string>
+
+
 </resources>

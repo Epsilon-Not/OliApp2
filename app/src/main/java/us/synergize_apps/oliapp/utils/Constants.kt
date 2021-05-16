@@ -17,12 +17,15 @@ object Constants {
     const val FIRST_NAME = "firstName"
     const val LAST_NAME = "lastName"
     const val EMAIL = "email"
+    const val IMAGE: String = "image"
     const val MOBILE: String = "mobile"
-    const val USER_PROFILE_IMAGE: String = "image"
+    const val USER_PROFILE_IMAGE: String = "User_Profile_Image"
     const val PROFILE_COMPLETE: String = "profileComplete"
     const val PROJECT_IMAGE: String = "Project_Image"
     const val PROJECTS: String = "projects"
     const val USER_ID: String = "user_id"
+
+    const val EXTRA_PROJECT_ID: String = "extra_project_id"
 
 
 

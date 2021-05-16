@@ -1,6 +1,7 @@
 package us.synergize_apps.oliapp.ui.adapters
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +10,8 @@ import kotlinx.android.synthetic.main.item_dashboard_layout.view.*
 import kotlinx.android.synthetic.main.item_list_layout.view.*
 import us.synergize_apps.oliapp.R
 import us.synergize_apps.oliapp.models.Project
+import us.synergize_apps.oliapp.ui.activities.ProjectDetailsActivity
+import us.synergize_apps.oliapp.utils.Constants
 import us.synergize_apps.oliapp.utils.GlideLoader
 
 open class DashboardProjectsListAdapter (
@@ -34,6 +37,12 @@ open class DashboardProjectsListAdapter (
             )
             holder.itemView.tv_dashboard_item_title.text = model.title
             holder.itemView.tv_dashboard_languages.text = model.languages
+
+            holder.itemView.setOnClickListener {
+                val intent = Intent(context, ProjectDetailsActivity::class.java)
+                intent.putExtra(Constants.EXTRA_PROJECT_ID, model.id)
+                context.startActivity(intent)
+            }
         }
     }
 

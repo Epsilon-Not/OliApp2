@@ -1,6 +1,7 @@
 package us.synergize_apps.oliapp.ui.adapters
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,7 +9,9 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_list_layout.view.*
 import us.synergize_apps.oliapp.R
 import us.synergize_apps.oliapp.models.Project
+import us.synergize_apps.oliapp.ui.activities.ProjectDetailsActivity
 import us.synergize_apps.oliapp.ui.fragments.ProjectsFragment
+import us.synergize_apps.oliapp.utils.Constants
 import us.synergize_apps.oliapp.utils.GlideLoader
 
 open class MyProjectsListAdapter (
@@ -34,6 +37,12 @@ open class MyProjectsListAdapter (
             holder.itemView.ib_delete_product.setOnClickListener {
                 fragment.deleteProject(model.id)
             }
+            holder.itemView.setOnClickListener {
+                val intent = Intent(context, ProjectDetailsActivity::class.java)
+                intent.putExtra(Constants.EXTRA_PROJECT_ID, model.id)
+                context.startActivity(intent)
+            }
+
         }
     }
 

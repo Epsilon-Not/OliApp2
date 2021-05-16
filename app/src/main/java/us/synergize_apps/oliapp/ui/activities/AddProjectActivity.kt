@@ -87,13 +87,14 @@ class AddProjectActivity : BaseActivity(), View.OnClickListener{
                 .getString(Constants.LOGGED_IN_USERNAME, "")!!
 
         val project = Project(
-                FireStoreClass().getCurrentUserID(), userName,
-                til_project_title.text.toString().trim{ it <= ' '},
+                FireStoreClass().getCurrentUserID(),
+                userName,
+                til_project_email.text.toString().trim { it <= ' ' },
+                til_project_title.text.toString().trim { it <= ' ' },
                 til_project_languages.text.toString().trim { it <= ' ' },
                 til_project_description.text.toString().trim { it <= ' ' },
                 til_project_repo.text.toString().trim { it <= ' ' },
                 oliProjectImageURL
-
 
         )
         FireStoreClass().uploadProjectDetails(this, project)
@@ -168,6 +169,11 @@ class AddProjectActivity : BaseActivity(), View.OnClickListener{
 
             TextUtils.isEmpty(til_project_repo.text.toString().trim { it <= ' ' }) -> {
                 showErrorSnackBar(resources.getString(R.string.err_msg_enter_project_repo), true)
+                false
+            }
+
+            TextUtils.isEmpty(til_project_email.text.toString().trim { it <= ' ' }) -> {
+                showErrorSnackBar(resources.getString(R.string.err_msg_enter_email), true)
                 false
             }
             else -> {
